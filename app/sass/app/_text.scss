@@ -1,0 +1,80 @@
+@mixin headings($from: 1, $to: 6){
+	@for $i from $from through $to{
+	  h#{$i}{
+		@content
+	  }
+	}
+}
+body {
+	font-family: 'Roboto';
+}
+h1 {
+  font-size: 2.5rem;
+  color: $white;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+@include headings(){
+  font-weight: normal;
+  font-family: 'dincond-bold';
+	small {
+		font-family: 'dincond-bold';
+		color: white;
+		text-transform: none;
+	}
+}
+
+#vraag {
+  p {
+    font-family: 'segoe';
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+#antwoord {
+  .no-border {
+    padding: 10px;
+  }
+  p {
+    font-family: 'segoe';
+    font-size: 0.9rem;
+  }
+}
+
+#resultaat {
+  p {
+    font-family: 'segoe';
+  }
+}
+
+.promille-naam {
+  font-family: 'segoe';
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 671px) {
+  #vraag {
+    p {
+      font-family: 'segoe';
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  }
+  #antwoord {
+    .no-border {
+      padding: 30px;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  .promille-naam {
+    font-family: 'segoe';
+    font-size: 3rem;
+  }
+}

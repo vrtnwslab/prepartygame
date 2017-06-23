@@ -1,0 +1,517 @@
+@import '~susy/sass/susy';
+@include border-box-sizing;
+
+$susy: (
+  columns: 15,
+  container: 100%
+);
+
+#wrapper {
+  margin: auto;
+  max-width: 980px;
+  min-height: 900px;
+  padding: 30px 30px 120px 30px;
+}
+
+#app > div > div {
+  @include container;
+  position: relative;
+}
+
+#title {
+  @include container;
+  @include span (15 last);
+  padding-bottom: 15px;
+  h1 {
+    @include span (13);
+    height: 23px;
+    line-height: 23px;
+  }
+  .logo {
+    @include span (2 last);
+  }
+}
+
+#welkom {
+  header {
+    padding-bottom: 30px;
+    width: 100%;
+  }
+  p {
+    width: 100%;
+    padding-top: 15px;
+  }
+  .meer-pano {
+    text-align: center;
+  }
+}
+
+.vlekken {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  .vlek-1 {
+    position: absolute;
+    top: 100px;
+    width: 300px;
+    height: 300px;
+  }
+  .vlek-2 {
+    position: absolute;
+    top: 400px;
+    right: 30px;
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.svg-container {
+}
+
+#shotlist {
+  padding-bottom: 15px;
+  .shots {
+    @include container;
+    .shot {
+      @include span(1);
+    }
+    .shot:last-child {
+      @include span(1 last);
+    }
+  }
+}
+
+#welkom, #resultaat {
+  @include span(15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 0px 15px darken(#E38C10, 30%);
+  position: relative;
+  border-radius: 30px;
+  background-color: lighten(#E38C10, 48%);
+  padding: 10px;
+  li {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+#vraag, #antwoord {
+  position: relative;
+  padding-bottom: 30px;
+  @include span(11);
+  @include push(2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 1000;
+  }
+  p {
+    width: 100%;
+  }
+  section {
+    z-index: 4;
+    box-shadow: 0px 0px 15px darken(#E38C10, 30%);
+    position: relative;
+    border-radius: 30px;
+    background-color: lighten(#E38C10, 48%);
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    &.empty-1 {
+      display: none;
+      position: absolute;
+      -ms-transform: rotate(9deg); /* IE 9 */
+      -webkit-transform: rotate(9deg); /* Chrome, Safari, Opera */
+      transform: rotate(9deg);
+      top: 20%;
+      left: 20%;
+    }
+    &.empty-2 {
+      display: none;
+      position: absolute;
+      -ms-transform: rotate(-14deg); /* IE 9 */
+      -webkit-transform: rotate(-14deg); /* Chrome, Safari, Opera */
+      transform: rotate(-14deg);
+      top: 20%;
+      left: 20%;
+    }
+    .svg-container {
+      position: absolute;
+      width: 75%;
+      top: 30px;
+      left: 30px;
+    }
+  }
+}
+
+.border {
+  section {
+    width: 100%;
+  }
+  border-radius: 30px;
+  border: 2px dashed $drBg;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.no-border {
+  border-radius: 30px;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#score {
+  display: none;
+  padding-top: 30px;
+  @include span(5);
+  @include pull(1);
+  section {
+    box-shadow: 0px 0px 5px darken(#E38C10, 20%);
+    position: relative;
+    border-radius: 30px;
+    background-color: lighten(#E38C10, 48%);
+    width: 250px;
+    height: 250px;
+    padding: 10px;
+  }
+  .border {
+    justify-content: flex-start;
+    padding: 30px;
+  }
+  .brein {
+    width: 50%;
+  }
+  .shot-score {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    h2 {
+      font-size: 3rem;
+      width: 30%;
+      color: $drBg;
+      text-transform: uppercase;
+      line-height: 6rem;
+      text-align: center;
+    }
+    .shot-image {
+      width: 25%;
+    }
+  }
+}
+
+button, .fb {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: $drBg;
+  text-decoration: none;
+  width: 60px;
+  height: 60px;
+  border: 1px solid transparent;
+  margin: 30px 15px 30px 15px;
+  &.volgende {
+    width: 75%;
+  }
+  &.welkom-knop {
+    width: 75%;
+  }
+}
+
+button:hover, .fb:hover, .pano:hover {
+  text-decoration: none;
+  background: $drGreen;
+  cursor: pointer;
+  transition: background 0.4s;
+}
+
+.line-current {
+  @include span(1);
+  height: 5px;
+  background-color: $white;
+}
+
+
+#resultaat {
+  section {
+    @include container;
+    @include span(15);
+    .links {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include span(15);
+      h2 {
+        font-size: 1.5rem;
+        span {
+          color: $drGreen;
+        }
+      }
+      li {
+        width: 100%;
+      }
+      p {
+        padding: 15px 0px 15px 0px;
+      }
+      p.duiding {
+        padding: 0px 0px 15px 0px;
+      }
+      button, .fb {
+        width: 100%;
+        margin: 0px;
+        margin-top: 16px;
+      }
+    }
+    .rechts {
+      @include span(15);
+      @include container;
+    }
+  }
+  #score {
+    display: none;
+    color: $drBg;
+    padding-top: 0px;
+    @include span(15);
+    @include pull(0);
+    section {
+      box-shadow: none;
+      position: relative;
+      border-radius: 0px;
+      background: none;
+      height: 350px;
+      padding: 10px;
+    }
+    .border {
+      justify-content: flex-start;
+      padding: 0px;
+      border-radius: 0;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: none;
+    }
+    .brein {
+      padding-top: 30px;
+      width: 30%;
+    }
+    .shot-score {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        font-size: 7rem;
+        color: $drBg;
+        text-transform: uppercase;
+        line-height: 6rem;
+        text-align: center;
+      }
+      .shot-image {
+        width: 8%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 671px) {
+  #resultaat {
+    section {
+      @include container;
+      @include span(15);
+      .links {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include span(8);
+        h2 {
+          font-size: 2.5rem;
+          span {
+            color: $drGreen;
+          }
+        }
+        li {
+          width: 100%;
+        }
+        p {
+          padding: 15px 0px 15px 0px;
+        }
+        p.duiding {
+          padding: 0px 0px 15px 0px;
+        }
+        button, .fb {
+          width: 100%;
+          margin: 0px;
+          margin-top: 16px;
+        }
+      }
+      .rechts {
+        @include span(7 last);
+        @include container;
+      }
+    }
+    #score {
+      color: $drBg;
+      padding-top: 0px;
+      @include span(15);
+      @include pull(0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      section {
+        box-shadow: none;
+        position: relative;
+        border-radius: 0px;
+        background: none;
+        height: 350px;
+        padding: 10px;
+      }
+      .border {
+        padding: 0px;
+        border-radius: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: none;
+      }
+      .brein {
+        width: 65%;
+        padding-top: 0px;
+      }
+      .shot-score {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
+        justify-content: center;
+        h2 {
+          font-size: 6rem;
+          color: $drBg;
+          text-transform: uppercase;
+          line-height: 6rem;
+          text-align: center;
+        }
+        .shot-image {
+          width: 10%;
+        }
+      }
+    }
+  }
+  #vraag, #antwoord {
+    @include pull(1);
+    padding-top: 90px;
+  }
+  #vraag, #antwoord, #score {
+    section {
+      width: 400px;
+      height: 400px;
+      &.empty-1 {
+        display: block;
+      }
+      &.empty-2 {
+        display: block;
+      }
+    }
+  }
+  #score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include pull(2);
+    .brein {
+      width: 75%;
+    }
+    .shot-score {
+      h2 {
+        font-size: 6rem;
+      }
+      .shot-image {
+        width: 15%;
+      }
+    }
+  }
+}
+.juist {
+  color: $drGreen;
+  width: 100%;
+}
+
+.fout {
+  color: $vsRed;
+  width: 100%;
+}
+
+.fb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3b5998;
+  i {
+    padding-right: 15px;
+  }
+  &.pano {
+    background-color: $drBg;
+  }
+}
+
+button {
+  i {
+    padding-right: 15px;
+  }
+}
+
+.promille-naam {
+  color: $drGreen;
+}
+
+.ja, .nee, .volgende {
+  margin: 0px 15px 0px 15px;
+}
+
+a.jongerengids {
+}
+
+.pano:hover {
+  background-color: $drGreen;
+}
+
+.meer-pano {
+  color: $drGreen;
+  a {
+    color: $drBg;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.logo-link {
+  width: 60px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.play-link {
+  width: 60px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
