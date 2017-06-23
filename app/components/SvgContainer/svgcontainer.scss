@@ -1,0 +1,10 @@
+.svg-container {
+  height: 0;
+  width: 100%;
+  position: relative;
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
